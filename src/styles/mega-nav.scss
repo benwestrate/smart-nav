@@ -1,0 +1,83 @@
+@import "./dropdown-mixin.scss";
+@import "./featured-mixin.scss";
+
+.mega-nav {
+  display: flex;
+  margin-bottom: 0;
+
+  &__item {
+      padding: 20px 10px 12px;
+      border-bottom: 8px solid transparent;
+
+      &__link {
+          color: $gray;
+          position: relative;
+          font-weight: 500;
+          background: none;
+          border: none;
+          display: flex;
+
+          &:hover {
+              // only turning off styling that is unwanted here 
+              // the visible hover styles are under the ".nav__wrapper--can-hover" class 
+              text-decoration: none;
+              color: $gray;
+          }
+
+          &__carrot{
+              @include carrot($carrotTopOffset+1, $gray, $carrotWidth, $carrotSize);
+              position: relative;
+              height: $carrotSize*4;
+              width: $carrotSize*3;
+          }
+      }
+  }
+
+  &__dropdown {
+      @include dropdown();
+
+      &__items {
+          
+          &--needs {
+              display: flex;
+              flex-wrap: wrap;
+
+              .mega-nav__dropdown__item{
+                  max-width: 50%;
+                  display: flex;
+
+                  &__link{
+                      font-weight: 700;
+                  }
+              }
+
+              &__icon{
+                  min-width: 60px;
+                  margin-right: 10px;
+              }
+          }
+
+          &--column-link-list{               
+              white-space: nowrap;
+
+              .mega-nav__dropdown__item{
+                  line-height: 55px;
+              }
+          }
+
+          &--multi-column-link-list{
+              column-count: 3;
+          }
+      }
+
+      
+  }
+}
+
+.mega-nav__col{
+  @include dropdown-col();
+}
+
+.mega-nav__featured{
+  @include featured-item();
+}

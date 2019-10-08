@@ -1,0 +1,101 @@
+
+.nav__country-selector {
+
+  position: relative;
+
+  &__activator {
+      position: relative;
+      height: 100%;
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+
+      &--text {
+          display: block;
+      }
+
+      &--carrot {
+          display: block;
+          position: relative;
+          @include carrot($carrotTopOffset, $gray, $carrotWidth, $carrotSize);
+          height: $carrotSize*4;
+          width: $carrotSize*3;
+      }
+  }
+
+  &__regions {
+      max-height: 0;
+      transition: all .3s ease-in-out;
+      display: flex;
+      position: absolute;
+      background: #fff;
+      padding: 0 20px;
+      right: -100px;
+      top: calc(100% + 15px);
+      margin: 0;
+      border-radius: 2px;
+      z-index: 1;
+      overflow: hidden;
+
+      &--show {
+          max-height: 500px;
+          padding: 20px;
+          border: 1px solid $graylight;
+      }
+  }
+
+  &__region {
+      padding: 0 20px;
+      min-width: 150px;
+
+
+      &__label {
+          color: $jllBrandPrimary;
+          font-weight: 800;
+      }
+
+      &__countries {
+          &__country {
+              font-size: .9rem;
+              white-space: nowrap;
+              display: flex;
+              align-items: center;
+
+              &__flag {
+                  @each $country in $countries {
+                      &--#{to-lower-case("#{$country}")}{
+                          @include flagIcon("#{$country}");
+                          margin: 5px 10px 5px 5px;
+                      }
+                  }
+              }
+
+          &__link {
+              color: $gray;
+              border-bottom: 1px solid transparent;
+              margin: 0;
+              padding: 0;
+
+              &:hover {
+                  color: $gray;
+                  text-decoration-color: $jllBrandPrimary;
+              }
+
+              &--active {
+                  font-weight: 800;
+              }
+          }
+      }
+  }
+
+  &--two-col {
+      min-width: 400px;
+
+      .nav__country-selector__region__countries {
+          column-count: 2;
+      }
+  }
+
+}
+}

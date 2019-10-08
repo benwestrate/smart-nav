@@ -1,0 +1,50 @@
+.nav__container {
+  position: fixed;
+  top: 0;
+  background: #fff;
+  z-index: 1;
+  width: 100%;
+}
+
+
+
+.nav__bar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+  background: #fff;
+  margin: 0 -50px;
+  padding-left: 50px;
+  padding-right: 50px;
+
+  &__logo {
+      width: 133px;
+  }
+
+  &--top {
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+
+  &--bottom {
+      // min-height: 64px;
+      max-height: 100px;
+      transition: max-height .3s ease-in-out;
+      overflow: hidden;
+
+      &--up {
+          // min-height: 0;
+          max-height: 0;
+      }
+
+      &--dropdown-open {
+          overflow: visible;
+      }
+  }
+}
+
+.nav__bar__trailing {
+  display: flex;
+  align-items: center;
+}

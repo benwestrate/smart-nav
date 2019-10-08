@@ -1,0 +1,29 @@
+
+@mixin dropdown($isList : false) {
+  display: none;
+  background: #fff;
+  padding: 80px 50px 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 800px;
+  border: 1px solid $graylight;
+  border-top: none;
+  z-index: -1;
+
+  &--show {
+      display: flex;
+  }
+
+  &__item {
+          
+      &__link{
+          color: #000;
+          white-space: nowrap;
+
+          @if $isList {
+            line-height: 55px;
+          }
+      }
+  }
+}

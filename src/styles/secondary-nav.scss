@@ -1,0 +1,51 @@
+@import "./dropdown-mixin.scss";
+
+.secondary-nav {
+  display: flex;
+  align-content: center;
+  margin: 0;
+
+  &__item {
+      padding: 23px 10px 12px;
+      border-bottom: 8px solid transparent;
+
+      &__link {
+          color: $gray;
+          font-weight: 300;
+
+          &:hover{
+            text-decoration: none;
+            color: $gray;
+          }
+
+          &--carrot{
+            height: 20px;
+            width: 20px;
+            position: relative;
+            @include carrot($carrotTopOffset, $gray, $carrotWidth, $carrotSize);
+          }
+      }
+
+      &--dropdown {
+        padding-right: 10px;
+
+        .secondary-nav__item{
+          &__link{
+            display: flex;
+          }
+        }
+      }
+  }
+
+  &__dropdown{
+    @include dropdown( true );
+  }
+
+  &__col{
+    @include dropdown-col();
+  }
+  
+  &__featured{
+    @include featured-item();
+  }
+}

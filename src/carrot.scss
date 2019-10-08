@@ -1,0 +1,45 @@
+@mixin carrot( $topOffset, $color, $width, $size, $bgColor : #fff, $direction: 'up' ){
+  @if $direction == 'up' {
+    &:before {
+      content: '';
+      position: absolute;
+      top: $topOffset;
+      right: 0;
+      border-top: $size solid $color;
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;
+    }
+  
+    &:after {
+      content: '';
+      position: absolute;
+      right: $width;
+      top: $topOffset;
+      border-top: $size - $width solid $bgColor;
+      border-left: $size - $width solid transparent;
+      border-right: $size - $width solid transparent;
+    }
+  } 
+
+  @if $direction == 'right' {
+    &:before {
+      content: '';
+      position: absolute;
+      top: $topOffset - 2px;
+      right: 0;
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;
+      border-left: $size solid $color;
+    }
+  
+    &:after {
+      content: '';
+      position: absolute;
+      right: $width;
+      top: $topOffset;
+      border-top: $size - $width solid transparent;
+      border-bottom: $size - $width solid transparent;
+      border-left: $size - $width solid $bgColor;
+    }
+  }
+}

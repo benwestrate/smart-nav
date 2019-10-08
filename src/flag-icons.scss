@@ -1,0 +1,65 @@
+$flag-icons : (
+  "Argentina" : -174px -154px,
+  "Brazil" : -217px -10px,
+  "Canada" : -217px -45px,
+  "Chile" : -217px -80px,
+  "Colombia" : -217px -115px,
+  "Mexico" : -217px -150px,
+  "Peru" : -10px -190px,
+  "USA" : -51px -190px,
+  "Philippines" : -94px -10px,
+  "Macau" : -92px -190px,
+  "Sri_Lanka" : -133px -190px,
+  "Singapore" : -94px -46px,
+  "Taiwan" : -174px -190px,
+  "New_Zealand" : -215px -190px,
+  "Malaysia" : -258px -10px,
+  "Japan" : -10px -82px,
+  "Indonesia" : -10px -10px,
+  "India" : -258px -45px,
+  "Thailand" : -258px -80px,
+  "Australia" : -258px -115px,
+  "China" : -258px -150px,
+  "Hong_Kong" : -258px -185px,
+  "Vietnam" : -10px -225px,
+  "Romania" : -51px -82px,
+  "Portugal" : -92px -82px,
+  "Poland" : -52px -10px,
+  "Netherlands" : -135px -10px,
+  "Morocco" : -135px -46px,
+  "Luxembourg" : -135px -82px,
+  "Italy" : -10px -118px,
+  "Israel" : -51px -118px,
+  "Ireland" : -92px -118px,
+  "France" : -133px -118px,
+  "Hungary" : -51px -225px,
+  "Germany" : -176px -10px,
+  "Belgium" : -92px -225px,
+  "Czech_Republic" : -133px -225px,
+  "Egypt" : -174px -225px,
+  "Finland" : -215px -225px,
+  "UK" : -256px -225px,
+  "UAE" : -10px -260px,
+  "slovakia" : -51px -260px,
+  "Russia" : -10px -46px,
+  "South_Africa" : -176px -46px,
+  "Ukraine" : -176px -82px,
+  "Turkey" : -176px -118px,
+  "Sweden" : -10px -154px,
+  "Saudi_Arabia" : -51px -154px,
+  "Spain" : -92px -154px,
+  "Switzerland" : -133px -154px,
+  "Korea" : -52px -46px
+);
+
+
+@mixin flagIcon( $country : "unitedKingdom" ) {
+
+  background-image: url(/src/css_sprites.png);
+  background-repeat: no-repeat;
+  display: block;
+  width: 21px; 
+  height: 16px;
+  background-position: map-get($map: $flag-icons, $key: $country);
+
+}

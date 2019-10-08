@@ -1,0 +1,54 @@
+
+
+
+.nav__language-selector {
+
+  position: relative;
+  text-align: center;
+  padding: 0 10px;
+
+  &--activator {
+      background: none;
+      border: none;
+      position: relative;
+      padding-right: $carrotSize*3;
+      margin: 0 15px;
+  }
+
+  &--carrot {
+      @include carrot($carrotTopOffset, $gray, $carrotWidth, $carrotSize);
+      height: $carrotSize*4;
+      width: $carrotSize*3;
+  }
+
+  &__languages {
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    padding: 0 7px;
+    top: calc(100% + 15px);
+    
+    width: calc(100% - 20px);
+    padding-left: 22px;
+    text-align: left;
+    z-index: 1;
+    background: #fff;
+    transition: max-height .3s ease-in-out;
+
+
+    &--show{
+      max-height: 200px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border: 1px solid $graylight;
+    }
+
+    &__language {
+      padding: 10px 0;
+
+      &__link {
+        color: gray;
+      }
+    }
+  }
+}

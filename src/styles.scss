@@ -1,0 +1,70 @@
+@import "./vars.scss";
+@import "./flag-icons.scss";
+@import "./carrot.scss";
+
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    margin-top: 170px;
+    color: $jllDefaultTextColor;
+}
+
+@import "./styles/base-nav.scss";
+@import "./styles/country-selector.scss";
+@import "./styles/language-selector.scss";
+@import "./styles/mega-nav.scss";
+@import "./styles/secondary-nav.scss";
+
+
+.nav__search-button {
+    height: 100%;
+    background: #E30613;
+    color: white;
+    padding: 1rem;
+    border: none;
+}
+
+
+
+.nav__wrapper {
+
+    &--can-hover {
+
+        .mega-nav, .secondary-nav {
+
+            &__item {
+
+                &:hover {
+                    border-bottom-color: $jllBrandPrimary;
+                }
+
+                &__link {
+
+                    &:hover {
+                        text-decoration: none;
+                        color: $gray;
+                    }
+
+                }
+
+            }
+
+            &__dropdown {
+                &:hover {
+                    cursor: pointer;
+
+                    .mega-nav__dropdown, .secondary-nav__dropdown{
+                        &__item__link {
+                            &:hover{
+                                color: $jllBrandPrimary;
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
