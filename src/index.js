@@ -1,7 +1,4 @@
-import "reset.css";
 import $ from "jquery";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "./styles.scss";
 
 
 const deltaScroll = 5;
