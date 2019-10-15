@@ -1,50 +1,156 @@
+@import "./media-queries-mixins.scss";
+
+
 .nav__container {
-  position: fixed;
-  top: 0;
-  background: #fff;
-  z-index: 1;
-  width: 100%;
+    position: fixed;
+    top: 0;
+    background: #fff;
+    z-index: 1;
+    width: 100%;
 }
 
 
 
 .nav__bar {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid lightgray;
-  background: #fff;
-  margin: 0 -50px;
-  padding-left: 50px;
-  padding-right: 50px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+    background: #fff;
+    margin: 0 -50px;
+    padding-left: 50px;
+    padding-right: 50px;
 
-  &__logo {
-      width: 133px;
-  }
+    &__logo {
+        width: 133px;
+    }
 
-  &--top {
-      padding-top: 20px;
-      padding-bottom: 20px;
-  }
+    &--top {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 
-  &--bottom {
-      // min-height: 64px;
-      max-height: 100px;
-      transition: max-height .3s ease-in-out;
-      overflow: hidden;
+    &--bottom {
+        max-height: 0;
+        transition: max-height .3s ease-in-out;
+        overflow: hidden;
+        flex-direction: column;
+        margin: 0 -20px;
+        padding: 0;
 
-      &--up {
-          // min-height: 0;
-          max-height: 0;
-      }
 
-      &--dropdown-open {
-          overflow: visible;
-      }
-  }
+        @include bp(desktop) {
+            display: flex;
+            flex-direction: row;
+            max-height: 100px;
+            margin: 0 -50px;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        &--dropdown-open {
+            overflow: visible;
+        }
+
+        &--mobile-show {
+            display: flex;
+            height: calc(100vh - 100px);
+            overflow-y: scroll;
+            justify-content: flex-start;
+            
+            max-height: 100vh;
+        }        
+
+        &--up {
+            max-height: 0;
+        }
+       
+    }
 }
 
 .nav__bar__trailing {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
+
+// .menu {
+//     display: flex;
+//     cursor: pointer;
+//     height: 100%;
+//     min-width: 59px;
+
+//     >div {
+//         background-color: $jllBrandPrimary;
+//         color: #fff;
+//         width: 100%;
+
+//         &:first-child {
+//             border-right: 2px solid $jllBrandPrimary;
+//         }
+//     }
+
+//     @include bp(desktop) {
+//         height: 64px;
+
+//         >div {
+//             width: 58px;
+//         }
+//     }
+
+//     .cq-Editable-dom {
+//         position: absolute;
+//     }
+// }
+
+// .menu-toggle {
+//     height: 18px;
+//     position: relative;
+//     width: 20px;
+
+//     @include bp(desktop) {
+//         height: 27px;
+//         width: 37px;
+//     }
+// }
+
+// .menu-icon {
+//     background: #fff;
+//     height: 2px;
+//     margin: 8px 0;
+//     position: absolute;
+//     transform: translateY(-50%);
+//     transition: all .5s ease;
+//     width: 100%;
+
+//     @include bp(desktop) {
+//         margin: 13px 0 10px;
+//     }
+
+//     &::before,
+//     &::after {
+//         background: #fff;
+//         content: '';
+//         height: 2px;
+//         position: absolute;
+//         top: 50%;
+//         transform: translateY(-50%);
+//         transition: all .5s ease;
+//         width: 100%;
+//     }
+
+//     &::before {
+//         margin-top: -8px;
+
+//         @include bp(desktop) {
+//             margin-top: -12px;
+//         }
+//     }
+
+//     &::after {
+//         margin-top: 8px;
+
+//         @include bp(desktop) {
+//             margin-top: 12px;
+//         }
+//     }
+// }

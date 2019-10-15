@@ -1,51 +1,71 @@
 @import "./dropdown-mixin.scss";
 
 .secondary-nav {
-  display: flex;
-  align-content: center;
-  margin: 0;
+    display: flex;
+    align-content: center;
+    margin: 0;
+    flex-direction: column;
+    width: 100%;
 
-  &__item {
-      padding: 23px 10px 12px;
-      border-bottom: 8px solid transparent;
+    @include bp(desktop){
+        flex-direction: row;
+        width: initial;
+    };
 
-      &__link {
-          color: $gray;
-          font-weight: 300;
+    &__item {
+        padding: 15px 20px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        border: none;
 
-          &:hover{
-            text-decoration: none;
-            color: $gray;
-          }
-
-          &--carrot{
-            height: 20px;
-            width: 20px;
-            position: relative;
-            @include carrot($carrotTopOffset, $gray, $carrotWidth, $carrotSize);
-          }
-      }
-
-      &--dropdown {
-        padding-right: 10px;
-
-        .secondary-nav__item{
-          &__link{
-            display: flex;
-          }
+        @include bp(desktop){
+            width: initial;
+            justify-content: flex-start;
+            padding: 23px 10px 12px;
+            border-bottom: 8px solid transparent;
         }
-      }
-  }
 
-  &__dropdown{
-    @include dropdown( true );
-  }
+        &__link {
+            color: $gray;
+            font-weight: 300;
 
-  &__col{
-    @include dropdown-col();
-  }
-  
-  &__featured{
-    @include featured-item();
-  }
+            &:hover {
+                text-decoration: none;
+                color: $gray;
+            }
+
+            &--carrot {
+                height: 20px;
+                width: 20px;
+                position: relative;
+                @include carrot($carrotTopOffset, $gray, $carrotWidth, $carrotSize);
+            }
+        }
+
+        &--dropdown {
+            
+            @include bp( desktop ){
+                padding-right: 10px;
+            }
+
+            .secondary-nav__item {
+                &__link {
+                    display: flex;
+                }
+            }
+        }
+    }
+
+    &__dropdown {
+        @include dropdown(true);
+    }
+
+    &__col {
+        @include dropdown-col();
+    }
+
+    &__featured {
+        @include featured-item();
+    }
 }

@@ -2,82 +2,131 @@
 @import "./featured-mixin.scss";
 
 .mega-nav {
-  display: flex;
-  margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
 
-  &__item {
-      padding: 20px 10px 12px;
-      border-bottom: 8px solid transparent;
+    @include bp(desktop){
+        flex-direction: row;
+        height: auto;
+    }
 
-      &__link {
-          color: $gray;
-          position: relative;
-          font-weight: 500;
-          background: none;
-          border: none;
-          display: flex;
+    &__item {
+        padding: 20px;
+        border-bottom: 2px solid $graylight;
+        
+        @include bp(desktop){
+            padding: 23px 10px 12px;
+            border-bottom: 8px solid transparent;
+        }
 
-          &:hover {
-              // only turning off styling that is unwanted here 
-              // the visible hover styles are under the ".nav__wrapper--can-hover" class 
-              text-decoration: none;
-              color: $gray;
-          }
+        &__link {
+            color: $gray;
+            position: relative;
+            font-weight: 500;
+            background: none;
+            border: none;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 0;
 
-          &__carrot{
-              @include carrot($carrotTopOffset+1, $gray, $carrotWidth, $carrotSize);
-              position: relative;
-              height: $carrotSize*4;
-              width: $carrotSize*3;
-          }
-      }
-  }
+            @include bp(desktop){
+                width: initial;
+                justify-content: flex-start;
+            }
 
-  &__dropdown {
-      @include dropdown();
+            &:hover {
+                // only turning off styling that is unwanted here 
+                // the visible hover styles are under the ".nav__wrapper--can-hover" class 
+                text-decoration: none;
+                color: $gray;
+            }
 
-      &__items {
-          
-          &--needs {
-              display: flex;
-              flex-wrap: wrap;
+            &__carrot {
+                @include carrot($carrotTopOffset+1, $gray, $carrotWidth, $carrotSize);
+                position: relative;
+                height: $carrotSize*4;
+                width: $carrotSize*3;
+            }
+        }
+    }
 
-              .mega-nav__dropdown__item{
-                  max-width: 50%;
-                  display: flex;
+    &__dropdown {
+        @include dropdown();
 
-                  &__link{
-                      font-weight: 700;
-                  }
-              }
+        &__items {
 
-              &__icon{
-                  min-width: 60px;
-                  margin-right: 10px;
-              }
-          }
+            &--needs {
+                
+                @include bp(desktop){
+                    display: flex;
+                    flex-wrap: wrap;
+                }
 
-          &--column-link-list{               
-              white-space: nowrap;
+                .mega-nav__dropdown__item {
 
-              .mega-nav__dropdown__item{
-                  line-height: 55px;
-              }
-          }
+                    @include bp( desktop ){
+                        max-width: 50%;
+                        display: flex;
+                    }
 
-          &--multi-column-link-list{
-              column-count: 3;
-          }
-      }
+                    &__link {
+                        @include bp( desktop ){
+                            font-weight: 700;
+                        }
+                    }
 
-      
-  }
+                    &__description{
+                        display: none;
+
+                        @include bp( desktop ){
+                            display: block;
+                        }
+                    }
+                }
+
+                &__icon {
+                    display: none;
+                    @include bp( desktop ){
+                        min-width: 60px;
+                        margin-right: 10px;
+                        display: block;
+                    }
+                }
+            }
+
+            &--column-link-list {
+                white-space: nowrap;
+
+                .mega-nav__dropdown__item {
+                    @include bp(desktop){
+                        line-height: 55px;
+                    }
+                }
+            }
+
+            &--multi-column-link-list {
+                @include bp(desktop){
+                    column-count: 3;
+                }
+            }
+        }
+
+
+    }
 }
 
-.mega-nav__col{
-  @include dropdown-col();
+.mega-nav__col {
+    @include dropdown-col();
 }
 
-.mega-nav__featured{
-  @include featured-item();
+.mega-nav__featured {
+    @include featured-item();
+
+    display: none;
+
+    @include bp( desktop ){
+        display: block;
+    }
 }

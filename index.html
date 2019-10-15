@@ -18,7 +18,10 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <nav class="nav__wrapper" data-hook="main-nav-wrapper">
+                    <nav class="nav__wrapper" 
+                        data-component="globalNav"
+                        data-component-instance="1"
+                        data-hook="main-nav-wrapper">
                         <div class="nav__bar nav__bar--top">
                             <div class="nav__bar__leading">
                                 <img src="https://www.us.jll.com/content/dam/jll-com/images/logos/jll-logo-positive.svg"
@@ -393,7 +396,7 @@
                                     </ul>
                                 </div>
                                 <div class="nav__language-selector">
-                                    <button class="nav__language-selector--activator" data-hook="language-selector-activator">
+                                    <button class="nav__language-selector__activator" data-hook="language-selector-activator">
                                         EN
                                         <i class="nav__language-selector--carrot"></i>
                                     </button>
@@ -410,6 +413,11 @@
                                     <button class="nav__search-button">
                                         <i class="nav__search-button--magnifiner"><img
                                                 src="https://www.us.jll.com/etc/designs/jll-dot-com/fonts/search.svg" /></i>
+                                    </button>
+                                </div>
+                                <div class="nav__hamburger" data-hook="hamburger-nav-button">
+                                    <button class="nav__hamburger__container" >
+                                        <span class="nav__hamburger__icon"></span>
                                     </button>
                                 </div>
                             </div>
