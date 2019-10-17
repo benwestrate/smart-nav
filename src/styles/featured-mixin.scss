@@ -2,36 +2,53 @@
 @import "../carrot.scss";
 
 @mixin dropdown-col {
-  flex-grow: 1;
-  margin: 0 10px;
+    flex-grow: 1;
+    margin: 0 10px;
 
-  &:first-of-type{
-      margin-left: 50px;
-  }
+    &:first-of-type {
+        margin-left: 50px;
+    }
 }
 
 @mixin featured-item($isCard : false) {
-  position: relative;
+    position: relative;
+    max-width: 230px;
 
-  &__img{
-      width: 100%;
-      margin-top: 20px;
-      margin-bottom: 10px;
-  }
-  &__title{
-      max-width: 360px;
-      font-weight: 300;
-  }
-  &__link{
-      font-weight: 800;
-      color: #000;
-      display: inline-flex;
+    &__img {
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 10px;
 
-      &--carrot{
-        @include carrot($carrotTopOffset+1, $jllBrandPrimary, $carrotWidth, $carrotSize, #fff, 'right');
-        position: relative;
-        height: $carrotSize*4;
-        width: $carrotSize*3;
-      }
-  }
+        &--wrapper {
+            position: relative;
+        }
+
+        &--call-out {
+            position: absolute;
+            right: 5px;
+            top: 25px;
+            background: rgba(0, 0, 0, .7);
+            padding: 3px 10px;
+            color: #fff;
+            font-size: .9rem;
+        }
+    }
+
+    &__title {
+        max-width: 360px;
+        font-weight: 300;
+    }
+
+    &__link {
+        font-weight: 800;
+        color: #000;
+        display: inline-flex;
+
+        &--carrot {
+            @include carrot($carrotTopOffset+1, $jllBrandPrimary, $carrotWidth, $carrotSize, #fff, 'right');
+            position: relative;
+            height: $carrotSize*4;
+            width: $carrotSize*3;
+        }
+    }
 }

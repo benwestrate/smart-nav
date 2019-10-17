@@ -16,6 +16,7 @@ class GlobalNav {
         this.bottom                    = $(el).find('.nav__bar--bottom');
         this.countrySelectorActivator  = this.top.find('[data-hook="country-selector-activator"]');
         this.languageSelectorActivator = this.top.find('[data-hook="language-selector-activator"]');
+        this.mobileNavActivator        = this.top.find('[data-hook="hamburger-nav-button"]');
         this.countrySelector           = this.countrySelectorActivator.parent();
         this.languageSelector          = this.languageSelectorActivator.parent();
         this.data                      = data;
@@ -29,6 +30,7 @@ class GlobalNav {
         this.closeAllDropdowns         = this.closeAllDropdowns.bind(this);
         this.navClickRegister          = this.navClickRegister.bind(this);
         this.updateCanHoverOnDropdowns = this.updateCanHoverOnDropdowns.bind(this);
+        this.registerMobileToggle      = this.registerMobileToggle.bind(this);
 
 
         this.registerListeners();
@@ -37,7 +39,9 @@ class GlobalNav {
 
 
     showDropdownFunc() {
-        this.bottom.addClass('nav__bar--bottom--dropdown-open')
+        if( currentViewport().isDesktop ){ 
+            this.bottom.addClass('nav__bar--bottom--dropdown-open')
+        }
     }
 
     hideDropdownFunc() {
@@ -77,9 +81,18 @@ class GlobalNav {
 
     registerBodyClick() {
         $('body').click(() => {
-            this.el.removeClass('nav__wrapper--can-hover');
-            this.updateCanHoverOnDropdowns(false);
-            this.closeAllDropdowns();
+            if( currentViewport().isDesktop ){
+                this.el.removeClass('nav__wrapper--can-hover');
+                this.updateCanHoverOnDropdowns(false);
+                this.closeAllDropdowns();
+            }
+        })
+    }
+
+    registerMobileToggle(){
+        this.mobileNavActivator.on('touchstart', (event) => {
+            this.mobileNavActivator.find('.nav__hamburger__icon').toggleClass('nav__hamburger__icon--open');
+            this.bottom.toggleClass('nav__bar--bottom--mobile-show');
         })
     }
 
@@ -87,6 +100,7 @@ class GlobalNav {
         scrollListener(this.el, this.closeAllDropdowns)
         this.navClickRegister();
         this.registerBodyClick();
+        this.registerMobileToggle();
     }
 
     registerDropdowns() {

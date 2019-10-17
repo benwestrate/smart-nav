@@ -66,6 +66,8 @@
 
                 .mega-nav__dropdown__item {
 
+                    padding-right: 10px;
+
                     @include bp( desktop ){
                         max-width: 50%;
                         display: flex;
@@ -74,6 +76,7 @@
                     &__link {
                         @include bp( desktop ){
                             font-weight: 700;
+                            padding: 0;
                         }
                     }
 
@@ -89,7 +92,7 @@
                 &__icon {
                     display: none;
                     @include bp( desktop ){
-                        min-width: 60px;
+                        min-width: 45px;
                         margin-right: 10px;
                         display: block;
                     }
@@ -98,12 +101,7 @@
 
             &--column-link-list {
                 white-space: nowrap;
-
-                .mega-nav__dropdown__item {
-                    @include bp(desktop){
-                        line-height: 55px;
-                    }
-                }
+                padding: 0 30px 0 0;
             }
 
             &--multi-column-link-list {

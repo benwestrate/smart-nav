@@ -38,8 +38,16 @@
         margin: 0 -20px;
         padding: 0;
 
+        @include bp( tablet ){
+            position: absolute;
+            width: 50%;
+            right: 0;
+        }
 
         @include bp(desktop) {
+            position: relative;
+            width: auto;
+            right: initial;
             display: flex;
             flex-direction: row;
             max-height: 100px;

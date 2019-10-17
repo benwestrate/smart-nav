@@ -15,7 +15,6 @@
     &__item {
         padding: 15px 20px;
         width: 100%;
-        display: flex;
         justify-content: space-between;
         border: none;
 
@@ -24,6 +23,8 @@
             justify-content: flex-start;
             padding: 23px 10px 12px;
             border-bottom: 8px solid transparent;
+            display: flex;
+
         }
 
         &__link {
@@ -67,5 +68,10 @@
 
     &__featured {
         @include featured-item();
+        display: none;
+
+        @include bp(desktop){
+            display: block;
+        }
     }
 }

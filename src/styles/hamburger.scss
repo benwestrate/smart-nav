@@ -26,6 +26,7 @@
         background: #fff;
         width: 100%;
         display: block;
+        transition: all .5s ease;
 
         &::before{
             content: " ";
@@ -34,7 +35,8 @@
             width: 100%;
             display: block;
             position: absolute;
-            top: -10px;
+            top: -12px;
+            transition: all .5s ease;
         }
 
         &::after{
@@ -44,7 +46,22 @@
             width: 100%;
             display: block;
             position: absolute;
-            bottom: -10px;
+            top: 12px;
+            transition: all .5s ease;
+        }
+
+        &--open{
+            background: transparent;
+            
+            &::before{
+                transform: rotate(-45deg);
+                top: 0;
+            }
+
+            &::after{
+                transform: rotate(45deg);
+                top: 0;
+            }
         }
     }
 

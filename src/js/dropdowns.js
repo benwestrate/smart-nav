@@ -16,6 +16,7 @@ export class Dropdown {
         this.showDropdownFunc  = showDropdownFunc;
         this.hideDropdownFunc  = hideDropdownFunc;
         this.closeAllDropdowns = closeAllDropdowns;
+        this.baseOffset        = el.dataset.baseOffset ? parseInt( el.dataset.baseOffset ) : 0;
 
         this.open          = this.open.bind(this);
         this.close         = this.close.bind(this);
@@ -33,7 +34,7 @@ export class Dropdown {
 
         if( currentViewport().isDesktop && this.useOffset ){
             let {left} = this.activator.position();
-            this.dropdownEl.css('left', left - 35);
+            this.dropdownEl.css('left', left - 35 + this.baseOffset);
         }
 
         this.dropdownEl.addClass(`${this.baseClass}--show`);
@@ -47,20 +48,25 @@ export class Dropdown {
 
     }
 
-    toggle(){
+    toggle( event ){
         if( this.isOpen ){
             this.close();
         } else {
             this.open();
         }
+
+        if( !currentViewport().isDesktop ){
+            event.stopImmediatePropagation();
+            event.preventDefault();
+        }
     }
 
     hover(){
-        if( this.useHover ){
-            this.wrapperEl.hover(() => {
-                if( this.canHover ) this.open()
-            }, this.close );
-        }
+        // if( this.useHover ){
+        //     this.wrapperEl.hover(() => {
+        //         if( this.canHover ) this.open()
+        //     }, this.close );
+        // }
         
 
     }

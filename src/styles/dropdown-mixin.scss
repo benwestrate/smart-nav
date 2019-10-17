@@ -5,7 +5,7 @@
     background: #fff;
    
     @include bp( desktop ){
-        padding: 80px 50px 20px;
+        padding: 85px 50px 20px;
         position: absolute;
         top: 0;
         left: 0;
@@ -31,12 +31,6 @@
             white-space: nowrap;
             display: block;
             padding: 10px 0;
-
-            @if $isList {
-                @include bp( desktop ){
-                    line-height: 55px;
-                }
-            }
         }
     }
 }
